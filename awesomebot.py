@@ -1,31 +1,14 @@
-import requests  
-import datetime
+import telebot
 
-class BotHandler:
 
-    def __init__(self, token):
-        self.token = token
-        self.api_url = "https://api.telegram.org/bot696871290:AAHjTGJQwyx6pm4qz5eJinAfxsaP_OefkIU/".format(token)
+access_token = "696871290:AAHjTGJQwyx6pm4qz5eJinAfxsaP_OefkIU"
 
-    def get_updates(self, offset=None, timeout=30):
-        method = 'getUpdates'
-        params = {'timeout': timeout, 'offset': offset}
-        resp = requests.get(self.api_url + method, params)
-        result_json = resp.json()['result']
-        return result_json
+bot = telebot.TeleBot(access_token)
 
-    def send_message(self, chat_id, text):
-        params = {'chat_id': chat_id, 'text': text}
-        method = 'sendMessage'
-        resp = requests.post(self.api_url + method, params)
-        return resp
+@bot.message_handler(content_types=['text'])
+def echo(message):
+    bot.send_message(message.chat.id, message.text)
 
-    def get_last_update(self):
-        get_result = self.get_updates()
 
-        if len(get_result) > 0:
-            last_update = get_result[-1]
-        else:
-            last_update = get_result[len(get_result)]
-
-        return last_update
+if __name__ == '__main__':
+    bot.polling(none_stop=True)
