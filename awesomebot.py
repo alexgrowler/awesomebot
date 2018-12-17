@@ -33,10 +33,10 @@ import telebot
 @bot.message_handler(commands = ['ask'])  
 def createbox(message):
 	keyboard1.row(telebot.types.InlineKeyboardButton('День Рождения \U0001F381', callback_data = 'birthday'))
-    keyboard1.row(telebot.types.InlineKeyboardButton('День Святого Валентина \U0001F496', callback_data = 'loveday'))
-    keyboard1.row(telebot.types.InlineKeyboardButton('8 Марта \U0001F338', callback_data = 'womanday'))
-    keyboard1.row(telebot.types.InlineKeyboardButton('23 Февраля \U0001F46E', callback_data = 'manday'))
-    create1 = bot.send_message(message.chat.id, '*Для какого события Вы подбираете подарок?*', reply_markup = keyboard1, parse_mode = 'markdown')
+	keyboard1.row(telebot.types.InlineKeyboardButton('День Святого Валентина \U0001F496', callback_data = 'loveday'))
+	keyboard1.row(telebot.types.InlineKeyboardButton('8 Марта \U0001F338', callback_data = 'womanday'))
+	keyboard1.row(telebot.types.InlineKeyboardButton('23 Февраля \U0001F46E', callback_data = 'manday'))
+	create1 = bot.send_message(message.chat.id, '*Для какого события Вы подбираете подарок?*', reply_markup = keyboard1, parse_mode = 'markdown')
 
 
 
