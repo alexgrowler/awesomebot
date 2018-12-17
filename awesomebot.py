@@ -1,5 +1,5 @@
 import telebot
-import config
+#import config
 
 #connect to sql
 #import os
