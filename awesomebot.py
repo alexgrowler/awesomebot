@@ -30,26 +30,31 @@ bot = telebot.TeleBot("696871290:AAHjTGJQwyx6pm4qz5eJinAfxsaP_OefkIU")
 
 
 @bot.message_handler(commands=['ask'])
+
+
+
+
+
 def mychat(message):
     keyboard = telebot.types.InlineKeyboardMarkup()
     keyboard.row(telebot.types.InlineKeyboarButton('Click here', callback_data='button_yes'))
     keyboard.row(telebot.types.InlineKeyboarButton('Click not here', callback_data='button_no'))
     bot.send_message(message.chat.id, 'Hi click any button!', reply_markup=keyboard)
      
-@bot.callback_query_handler(func = lambda call: call.data == 'button_yes')
-def newbutton (query):
-    bot.edit_message_text(chat_id = query.message.chat.id,
-                          message_id= query.message.message_id,
-                          text='Yes!')
+#@bot.callback_query_handler(func = lambda call: call.data == 'button_yes')
+#def newbutton (query):
+ #   bot.edit_message_text(chat_id = query.message.chat.id,
+  #                        message_id= query.message.message_id,
+   #                       text='Yes!')
 
-@bot.callback_query_handler(func = lambda call: call.data == 'button_no')
-def newbutton (query):
-    bot.edit_message_text(chat_id = query.message.chat.id,
-                          message_id= query.message.message_id,
-                          text='No!')
+#@bot.callback_query_handler(func = lambda call: call.data == 'button_no')
+#def newbutton (query):
+ #   bot.edit_message_text(chat_id = query.message.chat.id,
+  #                        message_id= query.message.message_id,
+   #                       text='No!')
 
-def b(message):
-    bot.send_message(message.chat.id, 'Your chat id: ' + str(message.chat.id))
+#def b(message):
+ #   bot.send_message(message.chat.id, 'Your chat id: ' + str(message.chat.id))
 
     
 
