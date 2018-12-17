@@ -1,5 +1,5 @@
 import telebot
-
+import config
 
 #connect to sql
 #import os
@@ -31,15 +31,11 @@ bot = telebot.TeleBot("696871290:AAHjTGJQwyx6pm4qz5eJinAfxsaP_OefkIU")
 
 @bot.message_handler(commands=['ask'])
 
-
-
-
-
 def mychat(message):
     keyboard = telebot.types.InlineKeyboardMarkup()
     keyboard.row(telebot.types.InlineKeyboarButton('Click here', callback_data='button_yes'))
     keyboard.row(telebot.types.InlineKeyboarButton('Click not here', callback_data='button_no'))
-    bot.send_message(message.chat.id, 'Hi click any button!', reply_markup=keyboard)
+    create = bot.send_message(message.chat.id, 'Hi click any button!', reply_markup=keyboard)
      
 #@bot.callback_query_handler(func = lambda call: call.data == 'button_yes')
 #def newbutton (query):
