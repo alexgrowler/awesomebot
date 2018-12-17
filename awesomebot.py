@@ -38,7 +38,7 @@ def createbox(message):
 	keyboard1.row(telebot.types.InlineKeyboardButton('23 Февраля \U0001F46E', callback_data = 'manday'))
 	create1 = bot.send_message(message.chat.id, '*Для какого события Вы подбираете подарок?*', reply_markup = keyboard1, parse_mode = 'markdown')
 
-
+#
 
 #@bot.callback_query_handler(func = lambda call: call.data == 'button_yes')
 #def newbutton (query):
