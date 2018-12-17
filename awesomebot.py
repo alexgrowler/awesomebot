@@ -37,7 +37,7 @@ def createbox(message):
 	keyboard.row(telebot.types.InlineKeyboardButton('День Святого Валентина \U0001F496', callback_data = 'loveday'))
 	keyboard.row(telebot.types.InlineKeyboardButton('8 Марта \U0001F338', callback_data = 'womanday'))
 	keyboard.row(telebot.types.InlineKeyboardButton('23 Февраля \U0001F46E', callback_data = 'manday'))
-	create = bot.send_message(message.chat.id, '*Для какого события Вы подбираете подарок?*', reply_markup = keyboard1, parse_mode = 'markdown')
+	create = bot.send_message(message.chat.id, '*Для какого события Вы подбираете подарок?*', reply_markup = keyboard, parse_mode = 'markdown')
 
 #
 
