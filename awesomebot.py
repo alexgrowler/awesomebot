@@ -23,22 +23,23 @@ import config
 
 #echo bot
 bot = telebot.TeleBot("696871290:AAHjTGJQwyx6pm4qz5eJinAfxsaP_OefkIU", threaded = False)
-#@bot.message_handler(content_types=['text'])
-#def echo(message):
- #   bot.send_message(message.chat.id, message.text)
+@bot.message_handler(content_types=['text'])
+def echo(message):
+    bot.send_message(message.chat.id, message.text)
 
 
 
      
-@bot.message_handler(commands = ['ask'])  
-def createbox(message):
-    keyboard1 = telebot.types.InlineKeyboardMarkup()
-    keyboard1.row(telebot.types.InlineKeyboardButton('Новый Год \U0001F384', callback_data = 'newyear'))
-    keyboard1.row(telebot.types.InlineKeyboardButton('День Рождения \U0001F381', callback_data = 'birthday'))
-    keyboard1.row(telebot.types.InlineKeyboardButton('День Святого Валентина \U0001F496', callback_data = 'loveday'))
-    keyboard1.row(telebot.types.InlineKeyboardButton('8 Марта \U0001F338', callback_data = 'womanday'))
-    keyboard1.row(telebot.types.InlineKeyboardButton('23 Февраля \U0001F46E', callback_data = 'manday'))
-    create1 = bot.send_message(message.chat.id, '*Для какого события Вы подбираете подарок?*', reply_markup = keyboard1, parse_mode = 'markdown')
+#@bot.message_handler(commands = ['ask'])  
+#def createbox(message):
+ # keyboard1.row(telebot.types.InlineKeyboardButton('День Рождения \U0001F381', callback_data = 'birthday'))
+  #  keyboard1.row(telebot.types.InlineKeyboardButton('День Святого Валентина \U0001F496', callback_data = 'loveday'))
+   # keyboard1.row(telebot.types.InlineKeyboardButton('8 Марта \U0001F338', callback_data = 'womanday'))
+    #keyboard1.row(telebot.types.InlineKeyboardButton('23 Февраля \U0001F46E', callback_data = 'manday'))
+    #create1 = bot.send_message(message.chat.id, '*Для какого события Вы подбираете подарок?*', reply_markup = keyboard1, parse_mode = 'markdown')
+
+
+
 #@bot.callback_query_handler(func = lambda call: call.data == 'button_yes')
 #def newbutton (query):
  #   bot.edit_message_text(chat_id = query.message.chat.id,
@@ -55,11 +56,6 @@ def createbox(message):
  #   bot.send_message(message.chat.id, 'Your chat id: ' + str(message.chat.id))
 
     
-
-
-
-
-
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
