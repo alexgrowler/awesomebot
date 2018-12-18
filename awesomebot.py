@@ -251,8 +251,12 @@ def a11(query):
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     if botdb.find({'chat_id': query.message.chat.id}).count() != 0:
         data = {
-            'chat_id': query.message.chat.id#,
-            #'type': type1
+            'chat_id': query.message.chat.id,#,
+            'type': 0,
+            'name': 0,
+            'age': 0,
+            'gender':0,
+            'coupon':0
             }
         botdb.insert_one(data)
     else:
