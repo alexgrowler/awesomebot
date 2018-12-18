@@ -53,7 +53,7 @@ def cafe(query):
 
 @bot.callback_query_handler(func=lambda call: call.data == 'bar')
 def bar(query):
-    type1 = 'bar'
+    type1 = 'bar' #
     keyboard1 = telebot.types.InlineKeyboardMarkup()
     keyboard1.row(telebot.types.InlineKeyboardButton('Techno', callback_data='tech'))
     keyboard1.row(telebot.types.InlineKeyboardButton('1703', callback_data='numb'))
