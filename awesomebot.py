@@ -511,7 +511,7 @@ def ccc333(query):
 #def handle_start_help(message):
  #   pass
 
-bot.polling(none_stop=True, interval=0)
+#bot.polling(none_stop=True, interval=0)
 
 #import sqlite3
 
