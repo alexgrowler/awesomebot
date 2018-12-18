@@ -5,15 +5,6 @@ bot = telebot.TeleBot(token, threaded = False)
 
 print(bot.get_me())
 
-@bot.message_handler(content_types=['text'])
-def echo(message):
-    bot.send_message(message.chat.id, message.text)
-
-
-if __name__ == '__main__':
-    bot.polling(none_stop=True)
-
-bot = telebot.TeleBot(token, threaded=False)
 
 
 @bot.message_handler(commands=['start'])
