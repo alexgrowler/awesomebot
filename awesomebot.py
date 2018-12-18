@@ -249,18 +249,19 @@ def a11(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
-    if botdb.find({'chat_id': query.message.chat.id}).count() != 0:
-        data = {
-            'chat_id': str(query.message.chat.id)#,
+    data = {'chat_id': str(query.message.chat.id)}
+    botdb.insert_one(data)
+   # if botdb.find({'chat_id': query.message.chat.id}).count() != 0:
+        #,
             # 'type': 0,
             # 'name': 0,
             # 'age': 0,
             # 'gender':0,
             # 'coupon':0
-            }
-        botdb.insert_one(data)
-    else:
-        pass
+            #}
+        
+  #  else:
+ #       pass
                           #, callback_data='end')
 
 
