@@ -12,14 +12,14 @@ botdb = db.mydb
 
 @bot.callback_query_handler(func=lambda call: call.data == 'end')
 def jjjjj(query):
-if botdb.find({'chat_id': query.message.chat.id}).count() != 0:
-    data = {
-        'chat_id': query.message.chat.id#,
-		#'type': type1
-        }
-    botdb.insert_one(data)
-else:
-    pass
+    if botdb.find({'chat_id': query.message.chat.id}).count() != 0:
+        data = {
+            'chat_id': query.message.chat.id#,
+    		#'type': type1
+            }
+        botdb.insert_one(data)
+    else:
+        pass
 #	botdb.update_one({'chat_id': query.message.chat.id},
 #					{'$set':{
 #						'type': 'Granola',
