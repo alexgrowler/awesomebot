@@ -1,18 +1,23 @@
+# на коменты обрати внимание, пиши звони с вопросами
+
+
 import telebot
 from pymongo import MongoClient
 
 token = '696871290:AAHjTGJQwyx6pm4qz5eJinAfxsaP_OefkIU'
 bot = telebot.TeleBot(token, threaded = False)
 
-#print(bot.get_me())
+#подключение к БД
 mongourl = 'mongodb://heroku_rffktvp8:jde852odv8uevo2an1ms8cdfq1@ds131763.mlab.com:31763/heroku_rffktvp8'
 client = MongoClient(mongourl)
 db = client['heroku_rffktvp8']
 botdb = db.mydb
 
+
+# запись в бд.Ключевой параметр, вызывающий функцию "end". Функция должна вызываться после показа КР-кода. сейчас они вписана в первую функцию: строки 257-258.
 @bot.callback_query_handler(func=lambda call: call.data == 'end')
 def jjjjj(query):
-    if botdb.find({'chat_id': query.message.chat.id}).count() != 0:
+    if botdb.find({'chat_id': query.message.chat.id}).count() == 0:
         data = {
             'chat_id': query.message.chat.id#,
             #'type': type1
@@ -26,10 +31,13 @@ def jjjjj(query):
 #                        'name': 'Name'
 #                    }})
 
+#здесь переменные-вопросы
 
 
+#здесь переменные-ответы
 
 
+#начало работы с юзером
 @bot.message_handler(commands=['start'])
 def sphere(message):
     keyboard1 = telebot.types.InlineKeyboardMarkup()
@@ -248,9 +256,9 @@ def fem2(query):
 def a11(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
-    data = {'chat_id': str(query.message.chat.id)}
-    botdb.insert_one(data)
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown') #нужно вставить callback_data='end' для проверки ф-ии БД, прим. ниже
+    data = {'chat_id': str(query.message.chat.id)} #нужно проверить работу функции записи в бд на первых строках кода и удалить строку отсюда
+    botdb.insert_one(data) # тоже нужно будет удалить
    # if botdb.find({'chat_id': query.message.chat.id}).count() != 0:
         #,
             # 'type': 0,
