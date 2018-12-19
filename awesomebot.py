@@ -50,7 +50,7 @@ def sphere(message):
 
 @bot.callback_query_handler(func=lambda call: call.data == 'cafe')
 def cafe(query):
-    type1 = 'cafe'
+    type1 = "cafe"
     keyboard1 = telebot.types.InlineKeyboardMarkup()
     keyboard1.row(telebot.types.InlineKeyboardButton('Granola', callback_data='gran'))
     keyboard1.row(telebot.types.InlineKeyboardButton('Mouse Tail', callback_data='mouse'))
@@ -61,7 +61,7 @@ def cafe(query):
 
 @bot.callback_query_handler(func=lambda call: call.data == 'bar')
 def bar(query):
-    type1 = 'bar' #
+    type1 = "bar" 
     keyboard1 = telebot.types.InlineKeyboardMarkup()
     keyboard1.row(telebot.types.InlineKeyboardButton('Techno', callback_data='tech'))
     keyboard1.row(telebot.types.InlineKeyboardButton('1703', callback_data='numb'))
@@ -72,7 +72,7 @@ def bar(query):
 
 @bot.callback_query_handler(func=lambda call: call.data == 'restaurant')
 def restaurant(query):
-    type1 = 'restaraunt'
+    type1 = "restaraunt"
     keyboard1 = telebot.types.InlineKeyboardMarkup()
     keyboard1.row(telebot.types.InlineKeyboardButton('Palkin', callback_data='pal'))
     keyboard1.row(telebot.types.InlineKeyboardButton('Woody', callback_data='woo'))
