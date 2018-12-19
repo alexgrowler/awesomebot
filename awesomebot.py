@@ -258,9 +258,9 @@ def a11(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {
-            'chat_id': query.message.chat.id,
-            'type': type1
-            }
+            'chat_id': query.message.chat.id#,
+            #'type': type1
+            #}
     botdb.insert_one(data) #нужно вставить callback_data='end' для проверки ф-ии БД, прим. ниже
     # data = {'chat_id': str(query.message.chat.id)} #нужно проверить работу функции записи в бд на первых строках кода и удалить строку отсюда
     # botdb.insert_one(data) # тоже нужно будет удалить
