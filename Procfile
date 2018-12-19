@@ -1,1 +1,1 @@
-web: python3 awesomebot.py
+web: python3 awesomebot.py $PORT
