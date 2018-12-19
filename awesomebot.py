@@ -278,8 +278,8 @@ def a22(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
-    data = {'chat_id': query.message.chat.id#,
-            #'type': type1
+    data = {'chat_id': query.message.chat.id,
+            'type': type1
             }
     botdb.insert_one(data)
 
