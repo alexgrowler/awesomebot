@@ -20,7 +20,7 @@ def jjjjj(query):
     if botdb.find({'chat_id': query.message.chat.id}).count() == 0:
         data = {
             'chat_id': query.message.chat.id#,
-            #'type': type1
+            'type': type1
             }
         botdb.insert_one(data)
     else:
