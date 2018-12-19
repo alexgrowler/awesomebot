@@ -15,16 +15,16 @@ botdb = db.mydb
 
 
 # запись в бд.Ключевой параметр, вызывающий функцию "end". Функция должна вызываться после показа КР-кода. сейчас они вписана в первую функцию: строки 257-258.
-# @bot.callback_query_handler(func=lambda call: call.data == 'end')
-# def jjjjj(query):
-#     if botdb.find({'chat_id': query.message.chat.id}).count() == 0:
-#         data = {
-#             'chat_id': query.message.chat.id,
-#             'type': type1
-#             }
-#         botdb.insert_one(data)
-#     else:
-#         pass
+@bot.callback_query_handler(func=lambda call: call.data == 'end')
+def jjjjj(query):
+    if botdb.find({'chat_id': query.message.chat.id}).count() == 0:
+        data = {
+            'chat_id': query.message.chat.id#,
+            #'type': type1
+            }
+        botdb.insert_one(data)
+    else:
+        pass
 #    botdb.update_one({'chat_id': query.message.chat.id},
 #                    {'$set':{
 #                        'type': 'Granola',
@@ -50,7 +50,7 @@ def sphere(message):
 
 @bot.callback_query_handler(func=lambda call: call.data == 'cafe')
 def cafe(query):
-    type1 = "cafe"
+    type1 = 'cafe'
     keyboard1 = telebot.types.InlineKeyboardMarkup()
     keyboard1.row(telebot.types.InlineKeyboardButton('Granola', callback_data='gran'))
     keyboard1.row(telebot.types.InlineKeyboardButton('Mouse Tail', callback_data='mouse'))
@@ -61,7 +61,7 @@ def cafe(query):
 
 @bot.callback_query_handler(func=lambda call: call.data == 'bar')
 def bar(query):
-    type1 = "bar" 
+    type1 = 'bar' #
     keyboard1 = telebot.types.InlineKeyboardMarkup()
     keyboard1.row(telebot.types.InlineKeyboardButton('Techno', callback_data='tech'))
     keyboard1.row(telebot.types.InlineKeyboardButton('1703', callback_data='numb'))
@@ -72,7 +72,7 @@ def bar(query):
 
 @bot.callback_query_handler(func=lambda call: call.data == 'restaurant')
 def restaurant(query):
-    type1 = "restaraunt"
+    type1 = 'restaraunt'
     keyboard1 = telebot.types.InlineKeyboardMarkup()
     keyboard1.row(telebot.types.InlineKeyboardButton('Palkin', callback_data='pal'))
     keyboard1.row(telebot.types.InlineKeyboardButton('Woody', callback_data='woo'))
@@ -256,14 +256,9 @@ def fem2(query):
 def a11(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
-    data = {
-            'chat_id': query.message.chat.id#,
-            #'type': type1
-            #}
-    botdb.insert_one(data)
-    # data = {'chat_id': str(query.message.chat.id)} #нужно проверить работу функции записи в бд на первых строках кода и удалить строку отсюда
-    # botdb.insert_one(data) # тоже нужно будет удалить
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown') #нужно вставить callback_data='end' для проверки ф-ии БД, прим. ниже
+    data = {'chat_id': str(query.message.chat.id)} #нужно проверить работу функции записи в бд на первых строках кода и удалить строку отсюда
+    botdb.insert_one(data) # тоже нужно будет удалить
    # if botdb.find({'chat_id': query.message.chat.id}).count() != 0:
         #,
             # 'type': 0,
@@ -282,242 +277,238 @@ def a11(query):
 def a22(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
-    # data = {'chat_id': query.message.chat.id,
-    #         'type': type1
-    #         }
-    # botdb.insert_one(data)
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 @bot.callback_query_handler(func=lambda call: call.data == 'a33')
 def a33(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'aa11')
 def aa11(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'aa22')
 def aa22(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'aa33')
 def aa33(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 @bot.callback_query_handler(func=lambda call: call.data == 'aaa11')
 def aaa11(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'aaa22')
 def aaa22(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'aaa33')
 def aaa33(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'aaa111')
 def aaa111(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'aaa222')
 def aaa222(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'aaa333')
 def aaa333(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'b11')
 def b11(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
     
 @bot.callback_query_handler(func=lambda call: call.data == 'b22')
 def b22(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'b33')
 def b33(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 @bot.callback_query_handler(func=lambda call: call.data == 'bb11')
 def bb11(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'bb22')
 def bb22(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'bb33')
 def bb33(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 @bot.callback_query_handler(func=lambda call: call.data == 'bbb11')
 def bbb11(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 @bot.callback_query_handler(func=lambda call: call.data == 'bbb22')
 def bbb22(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'bbb33')
 def bbb33(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'bbb111')
 def bbb111(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'bbb222')
 def bbb222(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'bbb333')
 def bbb333(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'c11')
 def c11(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'c22')
 def c22(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'c33')
 def c33(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'cc11')
 def cc11(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'cc22')
 def cc22(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'cc33')
 def cc33(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 @bot.callback_query_handler(func=lambda call: call.data == 'ccc11')
 def ccc11(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'ccc22')
 def ccc22(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'ccc33')
 def ccc33(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'ccc111')
 def ccc11(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'ccc222')
 def ccc222(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'ccc333')
 def ccc333(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
 
     for text in finalvars:
         bot.send_message(query.message.chat.id, text, parse_mode='markdown')
