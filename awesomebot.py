@@ -15,16 +15,16 @@ botdb = db.mydb
 
 
 # запись в бд.Ключевой параметр, вызывающий функцию "end". Функция должна вызываться после показа КР-кода. сейчас они вписана в первую функцию: строки 257-258.
-# @bot.callback_query_handler(func=lambda call: call.data == 'end')
-# def jjjjj(query):
-#     if botdb.find({'chat_id': query.message.chat.id}).count() == 0:
-#         data = {
-#             'chat_id': query.message.chat.id#,
-#             #'type': type1
-#             }
-#         botdb.insert_one(data)
-    # else:
-    #     pass
+@bot.callback_query_handler(func=lambda call: call.data == 'end')
+def jjjjj(query):
+    if botdb.find({'chat_id': query.message.chat.id}).count() == 0:
+        data = {
+            'chat_id': query.message.chat.id#,
+            #'type': type1
+            }
+        botdb.insert_one(data)
+    else:
+        pass
 #    botdb.update_one({'chat_id': query.message.chat.id},
 #                    {'$set':{
 #                        'type': 'Granola',
@@ -277,11 +277,11 @@ def a11(query):
 def a22(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
-                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
-    data = {'chat_id': query.message.chat.id,
-            'type': type1
-            }
-    botdb.insert_one(data)
+                          text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown', callback_data='end')
+    # data = {'chat_id': query.message.chat.id,
+    #         'type': type1
+    #         }
+    # botdb.insert_one(data)
 
 @bot.callback_query_handler(func=lambda call: call.data == 'a33')
 def a33(query):
