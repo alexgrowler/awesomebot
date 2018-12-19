@@ -1,1 +1,1 @@
-web: python3 awesomebot.py $PORT
+web: python3 awesomebot.py --port=$PORT
