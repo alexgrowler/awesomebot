@@ -258,7 +258,10 @@ def a11(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown') #нужно вставить callback_data='end' для проверки ф-ии БД, прим. ниже
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('defef')
+            'type': str('cafe'),
+            'name': str('Granola'),
+            'gender': str('male'),
+            'age': str('<25')
             } 
     botdb.insert_one(data) 
    # if botdb.find({'chat_id': query.message.chat.id}).count() != 0:
