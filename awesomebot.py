@@ -261,7 +261,7 @@ def a11(query):
             'chat_id': query.message.chat.id#,
             #'type': type1
             #}
-    botdb.insert_one(data) #нужно вставить callback_data='end' для проверки ф-ии БД, прим. ниже
+    botdb.insert_one(data)
     # data = {'chat_id': str(query.message.chat.id)} #нужно проверить работу функции записи в бд на первых строках кода и удалить строку отсюда
     # botdb.insert_one(data) # тоже нужно будет удалить
    # if botdb.find({'chat_id': query.message.chat.id}).count() != 0:
