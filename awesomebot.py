@@ -15,16 +15,16 @@ botdb = db.mydb
 
 
 # запись в бд.Ключевой параметр, вызывающий функцию "end". Функция должна вызываться после показа КР-кода. сейчас они вписана в первую функцию: строки 257-258.
-@bot.callback_query_handler(func=lambda call: call.data == 'end')
-def jjjjj(query):
-    if botdb.find({'chat_id': query.message.chat.id}).count() == 0:
-        data = {
-            'chat_id': query.message.chat.id#,
-            #'type': type1
-            }
-        botdb.insert_one(data)
-    else:
-        pass
+# @bot.callback_query_handler(func=lambda call: call.data == 'end')
+# def jjjjj(query):
+#     if botdb.find({'chat_id': query.message.chat.id}).count() == 0:
+#         data = {
+#             'chat_id': query.message.chat.id#,
+#             #'type': type1
+#             }
+#         botdb.insert_one(data)
+#     else:
+#         pass
 #    botdb.update_one({'chat_id': query.message.chat.id},
 #                    {'$set':{
 #                        'type': 'Granola',
@@ -298,8 +298,8 @@ def aa11(query):
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
             'type': str('cafe'),
-            'name': str('Granola'),
-            'gender': str('male'),
+            'name': str('Mouse'),
+            'gender': str('female'),
             'age': str('<25')
             } 
     botdb.insert_one(data)
@@ -311,9 +311,9 @@ def aa22(query):
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
             'type': str('cafe'),
-            'name': str('Granola'),
-            'gender': str('male'),
-            'age': str('<25')
+            'name': str('Mouse'),
+            'gender': str('female'),
+            'age': str('25-45')
             } 
     botdb.insert_one(data)
 
@@ -324,9 +324,9 @@ def aa33(query):
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
             'type': str('cafe'),
-            'name': str('Granola'),
-            'gender': str('male'),
-            'age': str('<25')
+            'name': str('Mouse'),
+            'gender': str('female'),
+            'age': str('>45')
             } 
     botdb.insert_one(data)
 
@@ -336,8 +336,8 @@ def aaa11(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
+            'type': str('bar'),
+            'name': str('1703'),
             'gender': str('male'),
             'age': str('<25')
             } 
@@ -349,10 +349,10 @@ def aaa22(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
+            'type': str('bar'),
+            'name': str('1703'),
             'gender': str('male'),
-            'age': str('<25')
+            'age': str('25-45')
             } 
     botdb.insert_one(data)
 
@@ -362,10 +362,10 @@ def aaa33(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
+            'type': str('bar'),
+            'name': str('1703'),
             'gender': str('male'),
-            'age': str('<25')
+            'age': str('>45')
             } 
     botdb.insert_one(data)
 
@@ -375,8 +375,8 @@ def aaa111(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
+            'type': str('restaraunt'),
+            'name': str('Woody'),
             'gender': str('male'),
             'age': str('<25')
             } 
@@ -388,10 +388,10 @@ def aaa222(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
+            'type': str('restaraunt'),
+            'name': str('Woody'),
             'gender': str('male'),
-            'age': str('<25')
+            'age': str('25-46')
             } 
     botdb.insert_one(data)
 
@@ -401,10 +401,10 @@ def aaa333(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
+            'type': str('restaraunt'),
+            'name': str('Woody'),
             'gender': str('male'),
-            'age': str('<25')
+            'age': str('>45')
             } 
     botdb.insert_one(data)
 
@@ -415,7 +415,7 @@ def b11(query):
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
             'type': str('cafe'),
-            'name': str('Granola'),
+            'name': str('Mouse'),
             'gender': str('male'),
             'age': str('<25')
             } 
@@ -428,9 +428,9 @@ def b22(query):
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
             'type': str('cafe'),
-            'name': str('Granola'),
+            'name': str('Mouse'),
             'gender': str('male'),
-            'age': str('<25')
+            'age': str('25-46')
             } 
     botdb.insert_one(data)
 
@@ -441,9 +441,9 @@ def b33(query):
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
             'type': str('cafe'),
-            'name': str('Granola'),
+            'name': str('Mouse'),
             'gender': str('male'),
-            'age': str('<25')
+            'age': str('>45')
             } 
     botdb.insert_one(data)
 
@@ -453,8 +453,8 @@ def bb11(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
+            'type': str('bar'),
+            'name': str('Techno'),
             'gender': str('male'),
             'age': str('<25')
             } 
@@ -466,10 +466,10 @@ def bb22(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
+            'type': str('bar'),
+            'name': str('Techno'),
             'gender': str('male'),
-            'age': str('<25')
+            'age': str('25-45')
             } 
     botdb.insert_one(data)
 
@@ -479,10 +479,10 @@ def bb33(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
+            'type': str('bar'),
+            'name': str('Techno'),
             'gender': str('male'),
-            'age': str('<25')
+            'age': str('>45')
             } 
     botdb.insert_one(data)
 
@@ -492,9 +492,9 @@ def bbb11(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
-            'gender': str('male'),
+            'type': str('bar'),
+            'name': str('1703'),
+            'gender': str('female'),
             'age': str('<25')
             } 
     botdb.insert_one(data)
@@ -505,10 +505,10 @@ def bbb22(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
-            'gender': str('male'),
-            'age': str('<25')
+            'type': str('bar'),
+            'name': str('1703'),
+            'gender': str('female'),
+            'age': str('25-45')
             } 
     botdb.insert_one(data)
 
@@ -518,10 +518,10 @@ def bbb33(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
-            'gender': str('male'),
-            'age': str('<25')
+            'type': str('bar'),
+            'name': str('1703'),
+            'gender': str('female'),
+            'age': str('>45')
             } 
     botdb.insert_one(data)
 
@@ -531,9 +531,9 @@ def bbb111(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
-            'gender': str('male'),
+            'type': str('restaraunt'),
+            'name': str('Palkin'),
+            'gender': str('female'),
             'age': str('<25')
             } 
     botdb.insert_one(data)
@@ -544,10 +544,10 @@ def bbb222(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
-            'gender': str('male'),
-            'age': str('<25')
+            'type': str('restaraunt'),
+            'name': str('Palkin'),
+            'gender': str('female'),
+            'age': str('25-45')
             } 
     botdb.insert_one(data)
 
@@ -557,10 +557,10 @@ def bbb333(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
-            'gender': str('male'),
-            'age': str('<25')
+            'type': str('restaraunt'),
+            'name': str('Palkin'),
+            'gender': str('female'),
+            'age': str('>45')
             } 
     botdb.insert_one(data)
 
@@ -572,7 +572,7 @@ def c11(query):
     data = {'chat_id': str(query.message.chat.id),
             'type': str('cafe'),
             'name': str('Granola'),
-            'gender': str('male'),
+            'gender': str('female'),
             'age': str('<25')
             } 
     botdb.insert_one(data)
@@ -585,8 +585,8 @@ def c22(query):
     data = {'chat_id': str(query.message.chat.id),
             'type': str('cafe'),
             'name': str('Granola'),
-            'gender': str('male'),
-            'age': str('<25')
+            'gender': str('female'),
+            'age': str('25-45')
             } 
     botdb.insert_one(data)
 
@@ -598,8 +598,8 @@ def c33(query):
     data = {'chat_id': str(query.message.chat.id),
             'type': str('cafe'),
             'name': str('Granola'),
-            'gender': str('male'),
-            'age': str('<25')
+            'gender': str('female'),
+            'age': str('>45')
             } 
     botdb.insert_one(data)
 
@@ -609,9 +609,9 @@ def cc11(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
-            'gender': str('male'),
+            'type': str('bar'),
+            'name': str('Techno'),
+            'gender': str('female'),
             'age': str('<25')
             } 
     botdb.insert_one(data)
@@ -622,10 +622,10 @@ def cc22(query):
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
     data = {'chat_id': str(query.message.chat.id),
-            'type': str('cafe'),
-            'name': str('Granola'),
-            'gender': str('male'),
-            'age': str('<25')
+            'type': str('bar'),
+            'name': str('Techno'),
+            'gender': str('female'),
+            'age': str('25-45')
             } 
     botdb.insert_one(data)
 
@@ -634,12 +634,26 @@ def cc33(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+    data = {'chat_id': str(query.message.chat.id),
+            'type': str('bar'),
+            'name': str('Techno'),
+            'gender': str('female'),
+            'age': str('>45')
+            } 
+    botdb.insert_one(data)
 
 @bot.callback_query_handler(func=lambda call: call.data == 'ccc11')
 def ccc11(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+    data = {'chat_id': str(query.message.chat.id),
+            'type': str('bar'),
+            'name': str('Techno'),
+            'gender': str('male'),
+            'age': str('<25')
+            } 
+    botdb.insert_one(data)
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'ccc22')
@@ -647,6 +661,13 @@ def ccc22(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+    data = {'chat_id': str(query.message.chat.id),
+            'type': str('bar'),
+            'name': str('Techno'),
+            'gender': str('male'),
+            'age': str('25-45')
+            } 
+    botdb.insert_one(data)
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'ccc33')
@@ -654,6 +675,13 @@ def ccc33(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+    data = {'chat_id': str(query.message.chat.id),
+            'type': str('bar'),
+            'name': str('Techno'),
+            'gender': str('male'),
+            'age': str('>45')
+            } 
+    botdb.insert_one(data)
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'ccc111')
@@ -661,6 +689,13 @@ def ccc11(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+    data = {'chat_id': str(query.message.chat.id),
+            'type': str('restaraunt'),
+            'name': str('Woody'),
+            'gender': str('female'),
+            'age': str('<25')
+            } 
+    botdb.insert_one(data)
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'ccc222')
@@ -668,13 +703,27 @@ def ccc222(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+    data = {'chat_id': str(query.message.chat.id),
+            'type': str('restaraunt'),
+            'name': str('Woody'),
+            'gender': str('female'),
+            'age': str('25-45')
+            } 
+    botdb.insert_one(data)
 
-
+ 
 @bot.callback_query_handler(func=lambda call: call.data == 'ccc333')
 def ccc333(query):
     finalvars = '[Покажите полученный QR-code в заведении при следующем визите:](https://img.icons8.com/metro/1600/qr-code.png)'
     bot.edit_message_text(chat_id=query.message.chat.id, message_id=query.message.message_id,
                           text= finalvars + '\n*Айди пользователя: *' + str(query.message.chat.id), parse_mode='markdown')
+    data = {'chat_id': str(query.message.chat.id),
+            'type': str('restaurant'),
+            'name': str('Woody'),
+            'gender': str('female'),
+            'age': str('>45')
+            } 
+    botdb.insert_one(data)
 
     for text in finalvars:
         bot.send_message(query.message.chat.id, text, parse_mode='markdown')
